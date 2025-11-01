@@ -1,36 +1,50 @@
-# Amparo na Rua
+# 💙 Amparo na Rua 2
 
-Projeto de HTML5 da ONG **Amparo na Rua**, que apoia moradores de rua.
+**Amparo na Rua 2** é a nova versão do site da ONG fictícia *Amparo na Rua*, criada para divulgar projetos sociais, incentivar o voluntariado e promover a capacitação de pessoas em situação de vulnerabilidade.
 
-## Autor
-Airton Luis Barboza
-
-## Descrição
-Este projeto contém um site em **HTML5 puro (sem CSS)** desenvolvido para a ONG **Amparo na Rua**, com foco em ajudar pessoas em situação de rua.  
-Ele possui quatro páginas principais:
-
-- **Página Inicial:** informações sobre a ONG, missão, visão e contatos.
-- **Projetos Sociais:** detalhes sobre programas de voluntariado e doações.
-- **Cadastro:** formulário para voluntários ou doadores com validação nativa HTML5, agrupamento lógico e placeholders para CPF, telefone e CEP.
-- **Capacitação Profissional:** informações sobre habilidades e profissões que voluntários podem ensinar, com link direto para o cadastro de voluntários.
-
-## Tecnologias Utilizadas
-- HTML5 (estrutura sem CSS)
-- Validação de formulário com atributos nativos (`required`, `pattern`, `type`)
-- Organização de campos usando `<fieldset>` e `<legend>`
-
-## Funcionalidades
-- Formulário de cadastro para voluntários e doadores
-- Validação de campos obrigatórios
-- Máscaras nativas via `pattern` para CPF, telefone e CEP
-- Mensagens de ajuda usando `placeholder` e `title`
-- Estrutura semântica com `<header>`, `<main>`, `<section>` e `<footer>`
-- Conteúdo acessível e bem organizado para futuras melhorias com CSS ou JavaScript
-
-## Objetivo
-O objetivo do projeto é criar uma base sólida para um site funcional e acessível da ONG **Amparo na Rua**, permitindo futuras expansões como integração com banco de dados e estilos CSS.
+Esta versão aprimorada foi desenvolvida com **HTML5** e **CSS3**, com foco em um design mais moderno, responsivo e agradável visualmente.
 
 ---
 
-© 2025 Amparo na Rua — Projeto desenvolvido por **Airton Luis Barboza**
+## 🌍 Sobre o Projeto
+
+O site apresenta informações sobre:
+- A história e os valores da ONG;
+- Principais projetos sociais em andamento;
+- Capacitação profissional e oportunidades de voluntariado;
+- Formulário de cadastro para voluntários e doadores.
+
+---
+
+## 🧱 Estrutura do Projeto
+
+amparo-na-rua2/
+├── index.html → Página inicial da ONG
+├── projetos.html → Detalhes sobre os projetos sociais
+├── capacitacao.html → Seção de capacitação profissional
+├── cadastro.html → Formulário para voluntários e doadores
+├── style.css → Folha de estilo principal
+└── img/ → Imagens utilizadas no site
+
+
+---
+
+## 🎨 Tecnologias Utilizadas
+
+- **HTML5** → Estrutura semântica do site  
+- **CSS3 (Flexbox)** → Estilo, layout e responsividade  
+- **Git & GitHub** → Controle de versão e hospedagem do código  
+
+---
+
+## 📱 Layout e Estilo
+
+O design utiliza:
+- Fundo **azul escuro** com texto **branco** para melhor contraste;  
+- Títulos em **amarelo** para destaque;  
+- Links com fundo **preto**, texto **amarelo** e cantos **arredondados**;  
+- Layout responsivo que se adapta a telas menores (celulares e tablets).  
+
+
+
 
