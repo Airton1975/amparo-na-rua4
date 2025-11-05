@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Formulário de cadastro de voluntários e doadores da ONG Amparo na Rua.">
-  <link rel="stylesheet" href="style.css">
-  <title>Cadastro de Voluntários e Doadores - Amparo na Rua</title>
-</head>
-<body>
-
-<header>
-  <h1>Cadastro de Voluntários e Doadores</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-      <li><a href="capacitacao.html">Capacitação Profissional</a></li>
-    </ul>
-  </nav>
-</header>
-
 <main>
-  <form action="#" method="POST">
+  <form id="formCadastro" novalidate>
 
     <!-- Informações Pessoais -->
     <fieldset>
@@ -30,35 +7,29 @@
 
       <p>
         <label for="nome">Nome Completo:</label><br>
-        <input type="text" id="nome" name="nome" required title="Digite seu nome completo">
+        <input type="text" id="nome" name="nome" title="Digite seu nome completo">
       </p>
 
       <p>
         <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required title="Digite um e-mail válido">
+        <input type="text" id="email" name="email" title="Digite um e-mail válido">
       </p>
 
       <p>
         <label for="cpf">CPF:</label><br>
-        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
-               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required
-               title="Digite um CPF no formato 000.000.000-00">
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
       </p>
 
       <p>
         <label for="telefone">Telefone:</label><br>
-        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"
-               pattern="\(\d{2}\) \d{4,5}-\d{4}" required
-               title="Digite um telefone no formato (00) 00000-0000">
+        <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000">
       </p>
 
       <p>
         <label for="nascimento">Data de Nascimento:</label><br>
-        <input type="date" id="nascimento" name="nascimento" required>
+        <input type="date" id="nascimento" name="nascimento">
       </p>
     </fieldset>
-
-    <br>
 
     <!-- Endereço -->
     <fieldset>
@@ -66,24 +37,22 @@
 
       <p>
         <label for="endereco">Endereço:</label><br>
-        <input type="text" id="endereco" name="endereco" required title="Digite seu endereço">
+        <input type="text" id="endereco" name="endereco">
       </p>
 
       <p>
         <label for="cep">CEP:</label><br>
-        <input type="text" id="cep" name="cep" placeholder="00000-000"
-               pattern="\d{5}-\d{3}" required
-               title="Digite um CEP no formato 00000-000">
+        <input type="text" id="cep" name="cep" placeholder="00000-000">
       </p>
 
       <p>
         <label for="cidade">Cidade:</label><br>
-        <input type="text" id="cidade" name="cidade" required title="Digite sua cidade">
+        <input type="text" id="cidade" name="cidade">
       </p>
 
       <p>
         <label for="estado">Estado:</label><br>
-        <select id="estado" name="estado" required title="Selecione seu estado">
+        <select id="estado" name="estado">
           <option value="">Selecione</option>
           <option value="AC">AC</option>
           <option value="AL">AL</option>
@@ -116,27 +85,26 @@
       </p>
     </fieldset>
 
-    <br>
-
     <!-- Forma de Colaboração -->
     <fieldset>
       <legend>Forma de Colaboração</legend>
 
       <p>Escolha como deseja colaborar:</p>
 
+      <!-- ✅ Correção completa: as opções agora ficam bem alinhadas -->
       <div class="radio-group">
-        <label>
-          <input type="radio" name="tipo_colaboracao" value="voluntario" required>
-          Voluntário
+        <label class="radio-option">
+          <input type="radio" name="tipo_colaboracao" value="voluntario">
+          <span>Voluntário</span>
+        </label>
+
+        <label class="radio-option">
+          <input type="radio" name="tipo_colaboracao" value="doacao">
+          <span>Doações</span>
         </label>
       </div>
 
-      <div class="radio-group">
-        <label>
-          <input type="radio" name="tipo_colaboracao" value="doacao" required>
-          Doações
-        </label>
-      </div>
+      <div id="radioError" class="error-message"></div>
 
       <p>
         <label for="habilidades">Caso seja voluntário, informe suas habilidades (opcional):</label><br>
@@ -145,7 +113,7 @@
 
       <p>
         <label for="tempo_disponivel">Quanto tempo você tem disponível por semana?</label><br>
-        <select id="tempo_disponivel" name="tempo_disponivel" required title="Selecione o tempo disponível">
+        <select id="tempo_disponivel" name="tempo_disponivel">
           <option value="">Selecione</option>
           <option value="menos_de_1h">Menos de 1 hora</option>
           <option value="1_3h">1 a 3 horas</option>
@@ -159,21 +127,12 @@
         <button type="submit" id="enviarCadastro">Enviar Cadastro</button>
       </p>
 
+      <div id="successMessage">Seu cadastro foi enviado com sucesso!</div>
     </fieldset>
-
   </form>
+
+  <script src="js/script.js"></script>
+
 </main>
 
-<footer>
-  <p>&copy; 2025 Amparo na Rua</p>
-  <p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-            alt="CSS válido!" />
-    </a>
-</p>
-</footer>
 
-</body>
-</html>
