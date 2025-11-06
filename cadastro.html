@@ -7,27 +7,33 @@
 
       <p>
         <label for="nome">Nome Completo:</label><br>
-        <input type="text" id="nome" name="nome" title="Digite seu nome completo">
+        <input type="text" id="nome" name="nome" aria-required="true">
+        <button type="button" onclick="reconhecerVoz('nome')" aria-label="Falar nome completo">🎤</button>
       </p>
 
       <p>
         <label for="email">E-mail:</label><br>
-        <input type="text" id="email" name="email" title="Digite um e-mail válido">
+        <input type="text" id="email" name="email" aria-required="true">
+        <button type="button" onclick="reconhecerVoz('email')" aria-label="Falar e-mail">🎤</button>
       </p>
 
       <p>
         <label for="cpf">CPF:</label><br>
-        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" aria-label="CPF no formato 000.000.000-00" aria-required="true" aria-describedby="cpfError">
+        <button type="button" onclick="reconhecerVoz('cpf')" aria-label="Falar CPF">🎤</button>
+        <div id="cpfError" class="error-message" style="display:none;"></div>
       </p>
 
       <p>
         <label for="telefone">Telefone:</label><br>
-        <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+        <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" aria-label="Telefone no formato (00) 00000-0000" aria-required="true" aria-describedby="telefoneError">
+        <button type="button" onclick="reconhecerVoz('telefone')" aria-label="Falar telefone">🎤</button>
+        <div id="telefoneError" class="error-message" style="display:none;"></div>
       </p>
 
       <p>
         <label for="nascimento">Data de Nascimento:</label><br>
-        <input type="date" id="nascimento" name="nascimento">
+        <input type="date" id="nascimento" name="nascimento" aria-required="true">
       </p>
     </fieldset>
 
@@ -37,22 +43,26 @@
 
       <p>
         <label for="endereco">Endereço:</label><br>
-        <input type="text" id="endereco" name="endereco">
+        <input type="text" id="endereco" name="endereco" aria-required="true">
+        <button type="button" onclick="reconhecerVoz('endereco')" aria-label="Falar endereço">🎤</button>
       </p>
 
       <p>
         <label for="cep">CEP:</label><br>
-        <input type="text" id="cep" name="cep" placeholder="00000-000">
+        <input type="text" id="cep" name="cep" placeholder="00000-000" aria-label="CEP no formato 00000-000" aria-required="true" aria-describedby="cepError">
+        <button type="button" onclick="reconhecerVoz('cep')" aria-label="Falar CEP">🎤</button>
+        <div id="cepError" class="error-message" style="display:none;"></div>
       </p>
 
       <p>
         <label for="cidade">Cidade:</label><br>
-        <input type="text" id="cidade" name="cidade">
+        <input type="text" id="cidade" name="cidade" aria-required="true">
+        <button type="button" onclick="reconhecerVoz('cidade')" aria-label="Falar cidade">🎤</button>
       </p>
 
       <p>
         <label for="estado">Estado:</label><br>
-        <select id="estado" name="estado">
+        <select id="estado" name="estado" aria-required="true">
           <option value="">Selecione</option>
           <option value="AC">AC</option>
           <option value="AL">AL</option>
@@ -86,20 +96,19 @@
     </fieldset>
 
     <!-- Forma de Colaboração -->
-    <fieldset>
-      <legend>Forma de Colaboração</legend>
+    <fieldset aria-labelledby="colaboracaoLabel">
+      <legend id="colaboracaoLabel">Forma de Colaboração</legend>
 
       <p>Escolha como deseja colaborar:</p>
 
-      <!-- ✅ Correção completa: as opções agora ficam bem alinhadas -->
       <div class="radio-group">
         <label class="radio-option">
-          <input type="radio" name="tipo_colaboracao" value="voluntario">
+          <input type="radio" name="tipo_colaboracao" value="voluntario" aria-required="true">
           <span>Voluntário</span>
         </label>
 
         <label class="radio-option">
-          <input type="radio" name="tipo_colaboracao" value="doacao">
+          <input type="radio" name="tipo_colaboracao" value="doacao" aria-required="true">
           <span>Doações</span>
         </label>
       </div>
@@ -109,6 +118,7 @@
       <p>
         <label for="habilidades">Caso seja voluntário, informe suas habilidades (opcional):</label><br>
         <textarea id="habilidades" name="habilidades" rows="4" cols="50"></textarea>
+        <button type="button" onclick="reconhecerVoz('habilidades')" aria-label="Falar habilidades">🎤</button>
       </p>
 
       <p>
@@ -124,15 +134,32 @@
       </p>
 
       <p>
-        <button type="submit" id="enviarCadastro">Enviar Cadastro</button>
+        <button type="submit" id="enviarCadastro" aria-label="Enviar formulário de cadastro">Enviar Cadastro</button>
       </p>
 
-      <div id="successMessage">Seu cadastro foi enviado com sucesso!</div>
+      <div id="successMessage" role="alert" aria-live="assertive">Cadastro realizado com sucesso!</div>
     </fieldset>
   </form>
 
-  <script src="js/script.js"></script>
+  <script>
+    function reconhecerVoz(idCampo) {
+      const campo = document.getElementById(idCampo);
+      const reconhecimento = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
+      reconhecimento.lang = 'pt-BR';
+      reconhecimento.interimResults = false;
+      reconhecimento.maxAlternatives = 1;
+
+      reconhecimento.start();
+
+      reconhecimento.onresult = function(event) {
+        const resultado = event.results[0][0].transcript;
+        campo.value = resultado;
+      };
+
+      reconhecimento.onerror = function(event) {
+        alert('Erro no reconhecimento de voz: ' + event.error);
+      };
+    }
+  </script>
 </main>
-
-

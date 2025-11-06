@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ONG Amparo na Rua — promovendo acolhimento, capacitação e reinserção social de pessoas em situação de rua.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <title>Amparo na Rua - Ajudando quem precisa</title>
 </head>
 
 <body id="topo">
   <header>
     <h1>Como Você Pode Ajudar</h1>
-    <nav aria-label="Menu principal">
+
+   <div class="acessibilidade-controles">
+  <button id="toggle-dark" aria-label="Ativar modo escuro">Modo Escuro</button>
+  <button id="toggle-contrast" aria-label="Ativar alto contraste">Alto Contraste</button>
+  <button id="reset-mode" aria-label="Voltar ao modo normal">Modo Normal</button>
+</div>
+
+    <nav role="navigation" aria-label="Menu principal">
+
       <ul>
         <li><a href="#" data-page="inicio">Início</a></li>
         <li><a href="#" data-page="projetos">Projetos</a></li>
@@ -22,7 +31,6 @@
   </header>
 
   <main id="conteudo">
-
     <section>
       <h2>Quem Somos</h2>
       <p>
@@ -45,7 +53,7 @@
 
       <p>
         Quer conhecer nossas iniciativas e descobrir como contribuir com essa causa? <br>
-        <a href="projetos.html">Veja nossos projetos em andamento</a>
+        <a href="projetos.html" title="Ver projetos em andamento">Veja nossos projetos em andamento</a>
       </p>
     </section>
 
@@ -57,14 +65,16 @@
         <li><strong>Distribuição de Alimentos:</strong> Realizamos ações semanais de entrega de marmitas e kits de higiene.</li>
         <li><strong>Reinserção Social:</strong> Promovemos cursos de capacitação e apoio para o retorno ao mercado de trabalho.</li>
       </ul>
-      <a href="projetos.html">Saiba mais sobre nossos projetos</a>
+      <a href="projetos.html" title="Página com detalhes dos projetos da ONG">Saiba mais sobre nossos projetos</a>
     </section>
 
     <section>
       <h2>Seja um Voluntário</h2>
       <p>Junte-se a nós e ajude a transformar vidas! Nossos voluntários são o coração das nossas ações.</p>
       <p>Se você tem tempo, disposição e vontade de fazer o bem, cadastre-se e venha participar das nossas atividades sociais.</p>
-      <a href="cadastro.html">Cadastre-se como voluntário</a>
+      <a href="cadastro.html" title="Página para se cadastrar como voluntário da ONG">Cadastre-se como voluntário</a>
+
+
     </section>
 
     <section id="contato">
@@ -79,9 +89,9 @@
 
       <p>Siga nossas redes sociais:</p>
       <ul>
-        <li><a href="https://www.instagram.com/amparonarua" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://www.facebook.com/amparonarua" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amparonarua" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/amparonarua" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Instagram">Instagram</a></li>
+        <li><a href="https://www.facebook.com/amparonarua" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Facebook">Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/amparonarua" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso LinkedIn">LinkedIn</a></li>
       </ul>
     </section>
   </main>
@@ -89,14 +99,17 @@
   <footer>
     <p>&copy; 2025 Amparo na Rua | Todos os direitos reservados</p>
     <p>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-            alt="CSS válido!" />
-    </a>
-</p>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+          <img style="border:0;width:88px;height:31px"
+              src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+              alt="CSS válido!" />
+      </a>
+    </p>
   </footer>
 
-  <script src="js/spa.js"></script>
+  <script src="js/spa.min.js"></script>
+  <script src="js/script.min.js"></script>
+  <script src="js/capacitacao.min.js"></script>
 </body>
+
 </html>

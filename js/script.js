@@ -153,3 +153,30 @@ function initCadastro() {
     form.reset();
   });
 }
+
+// Reconhecimento de voz
+function reconhecerVoz(idCampo) {
+  const campo = document.getElementById(idCampo);
+  if (!campo) return;
+
+  const reconhecimento = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+  reconhecimento.lang = 'pt-BR';
+  reconhecimento.interimResults = false;
+  reconhecimento.maxAlternatives = 1;
+
+  reconhecimento.start();
+
+  reconhecimento.onresult = function(event) {
+    const resultado = event.results[0][0].transcript;
+    campo.value = resultado;
+    campo.focus();
+  };
+
+  reconhecimento.onerror = function(event) {
+    alert('Erro no reconhecimento de voz: ' + event.error);
+  };
+}
+
+// Inicialização
+window.addEventListener("DOMContentLoaded", initCadastro);
